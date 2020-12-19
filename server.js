@@ -1,6 +1,8 @@
 const logo = require('asciiart-logo')
 const colors = require('colors')
 const { prompt } = require('inquirer')
+const db = require('./db')
+require('console.table')
 
 const init = () => {
   // Renders starting logo
@@ -35,13 +37,24 @@ const loadMainPrompts = () => {
 
     switch (userChoice) {
       case 'VIEW_ALL_EMPLOYEES':
-        console.log('You chose View All Employees')
+        viewAllEmployees()
         break
 
       default:
         quit()
     }
   })
+}
+
+// View ALL Employees
+const viewAllEmployees = () => {
+  db.findAllEmployees()
+    .then(([rows]) => {
+      let employees = rows
+      console.log('\n')
+      console.table(employees)
+    })
+    .then(() => loadMainPrompts())
 }
 
 const quit = () => {
