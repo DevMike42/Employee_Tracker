@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Mike Rivera",
   "license": "ISC",
   "dependencies": {
+    "asciiart-logo": "^0.2.6",
+    "colors": "^1.4.0",
+    "config": "^3.3.3",
+    "console.table": "^0.10.0",
+    "dotenv": "^8.2.0",
     "inquirer": "^7.3.3",
     "mysql2": "^2.2.5"
   },
